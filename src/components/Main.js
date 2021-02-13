@@ -17,14 +17,6 @@ const [userDescription, setUserDescription] = React.useState('Исследова
 const [userAvatar, setUserAvatar] = React.useState('');
 const [cards, setCards] = React.useState([]);
 
-    // api.getInitialCards()
-    // .then((values)=>{
-    // setStarsCard(values);
-    // console.log(cards);
-    // })
-    // .catch((err)=>{     
-    // console.log(err);
-    // })
 
     React.useEffect(() => {
         api.getInitialCards()
@@ -74,9 +66,6 @@ const [cards, setCards] = React.useState([]);
     );
 
 }
-
-
-
 
 
 export default Main;
