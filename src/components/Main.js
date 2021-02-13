@@ -1,6 +1,6 @@
 import iconEditPath from './../images/edit.svg';
 import iconAddPath from './../images/add.svg';
-import Api from './Api.js';
+import Api from '../utils/Api.js';
 import React from 'react';
 import Card from './Card.js';
 
