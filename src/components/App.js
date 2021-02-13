@@ -25,20 +25,20 @@ function App() {
     setAddPlacePopup(true)
   }
 
-function closeAllPopup() {
-  setAddPlacePopup(false);
-  setEditProfilePopup(false);
-  setEditAvatarPopup(false);
-  setIsOpen(false);
+  function closeAllPopup() {
+    setAddPlacePopup(false);
+    setEditProfilePopup(false);
+    setEditAvatarPopup(false);
+    setIsOpen(false);
 
-}
+  }
 
-const [selectedCard, setSelectedCard] = React.useState({});
-const [isOpen, setIsOpen] = React.useState(false);
-function handleCardClick(card){
-  setSelectedCard(card);
-  setIsOpen(true);
-}
+  const [selectedCard, setSelectedCard] = React.useState({});
+  const [isOpen, setIsOpen] = React.useState(false);
+  function handleCardClick(card){
+    setSelectedCard(card);
+    setIsOpen(true);
+  }
 
 
   return (
