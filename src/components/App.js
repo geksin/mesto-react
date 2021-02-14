@@ -23,13 +23,20 @@ function App() {
     setAddPlacePopup(true)
   }
 
+  const [isDeleteCardPopupOpen, setDeleteCardPopup] = React.useState(false);
+  function handleDeleteCardPopup(){
+    setDeleteCardPopup(true)
+  }
+
   function closeAllPopup() {
     setAddPlacePopup(false);
     setEditProfilePopup(false);
     setEditAvatarPopup(false);
+    setDeleteCardPopup(false);
     setIsOpen(false);
 
   }
+
 
   const [selectedCard, setSelectedCard] = React.useState({});
   const [isOpen, setIsOpen] = React.useState(false);
@@ -42,7 +49,7 @@ function App() {
   return (
     <>
     <Header />
-    <Main onEditProfile={handleEditProfileClick}  onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} />
+    <Main onEditProfile={handleEditProfileClick} onDeleteCard={handleDeleteCardPopup} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} />
     <PopupWithForm name="edit-profile" formName="form_edit" title="Редактировать профиль" isOpen={isEditProfilePopupOpen} isClose={closeAllPopup}>
       <input id="profile-name" name="profile-name" type="text" className="popup__profile-input" placeholder="Имя" minLength={2} maxLength={40} required />
       <span id="profile-name-error" className="popup__profile-input-error" />
@@ -65,11 +72,11 @@ function App() {
       <button type="submit" className="popup__button-save">Сохранить</button>
     </PopupWithForm>
 
-    <PopupWithForm name="delete-card" formName="delete-card" title="Вы уверены?" isOpen={false} isClose={closeAllPopup}>
+    <PopupWithForm name="delete-card" formName="delete-card" title="Вы уверены?" isOpen={isDeleteCardPopupOpen} isClose={closeAllPopup}>
       <button type="button" className="popup__button-save">Уверен на все 100%</button>
     </PopupWithForm>
 
-    <ImagePopup card={selectedCard} onClose={isOpen} isClose={closeAllPopup}/>
+    <ImagePopup card={selectedCard} onClose={closeAllPopup} isOpen={isOpen}/>
     <Footer />
   </>  
 

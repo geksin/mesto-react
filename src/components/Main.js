@@ -1,19 +1,14 @@
 import iconEditPath from './../images/edit.svg';
 import iconAddPath from './../images/add.svg';
-import Api from '../utils/Api.js';
+import {api} from '../utils/api.js';
 import React from 'react';
 import Card from './Card.js';
-
-const api = new Api({
-    address: 'https://mesto.nomoreparties.co/v1/cohort-19',
-    token: 'd0d17317-fe5c-4341-9c10-713100a37209'
-});
 
 
 function Main (props) {
 
-const [userName, setUserName] = React.useState('Жак ив кусто');
-const [userDescription, setUserDescription] = React.useState('Исследователь');
+const [userName, setUserName] = React.useState('Загрузка...');
+const [userDescription, setUserDescription] = React.useState('Совсем скоро...');
 const [userAvatar, setUserAvatar] = React.useState('');
 const [cards, setCards] = React.useState([]);
 
@@ -27,15 +22,19 @@ const [cards, setCards] = React.useState([]);
       },[]);
 
 
-    api.getUserData()
-    .then((values)=>{
-        setUserName(values.name);
-        setUserDescription(values.about);
-        setUserAvatar(values.avatar);
-    })
-    .catch((err)=>{     
-        console.log(err);
-     })
+    React.useEffect(() => {
+        api.getUserData()
+        .then((values)=>{
+            setUserName(values.name);
+            setUserDescription(values.about);
+            setUserAvatar(values.avatar);
+        })
+        .catch((err)=>{     
+            console.log(err);
+         })
+      },[]);
+
+
 
      function handleClickApp (card) {
         props.onCardClick(card);
@@ -60,7 +59,7 @@ const [cards, setCards] = React.useState([]);
                 </button>
             </section>
             <section className="elements">
-                {cards.map((item) => <Card key={item._id} card={item} onCardClick={handleClickApp} />)}
+                {cards.map((item) => <Card key={item._id} card={item} onCardClick={handleClickApp} onDeleteCard={props.onDeleteCard} />)}
             </section>
         </main>
     );

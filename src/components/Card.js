@@ -10,8 +10,8 @@ function Card (props) {
     return (
         <div className="card__template">
             <article className="element">
-                <img className="element__photo" src={props.card.link} title="Фото пользователя" alt="Фото пользователя" onClick={handleClick} />
-                <button type="button" class="element__button-delete"></button>
+                <img className="element__photo" src={props.card.link} title={`Фото пользователя ${props.card.name}`} alt={`Фото пользователя ${props.card.name}`} onClick={handleClick} />
+                <button type="button" class="element__button-delete" onClick={props.onDeleteCard}></button>
                 <div className="element__down-part">
                 <h2 className="element__name">{props.card.name}</h2>
                     <div className="element__like">
@@ -25,7 +25,3 @@ function Card (props) {
 }
 
 export default Card;
-
-
-
-
