@@ -3,7 +3,6 @@ import iconAddPath from './../images/add.svg';
 import api from '../utils/api.js';
 import React from 'react';
 import Card from './Card.js';
-import Api from '../utils/api.js'; // для автотестов
 
 function Main (props) {
 
