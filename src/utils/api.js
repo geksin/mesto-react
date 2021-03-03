@@ -93,8 +93,8 @@ class Api {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            name: data['profile-name'],
-            about: data['profile-profession']
+            name: data.name,
+            about: data.about
         })
     })
       .then((res) => this._returnServerResponse(res))
