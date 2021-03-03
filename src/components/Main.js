@@ -27,7 +27,7 @@ function Main (props) {
                     <button type="button" className="profile__edit-button" onClick={props.onEditProfile}><img src={iconEditPath} alt="кнопка редактирования" />
                     </button>
                     </div>
-                    <p className="profile__subtitle">{currentUser.description}</p>
+                    <p className="profile__subtitle">{currentUser.about}</p>
                 </div>
                 </div>
                 <button type="button" className="profile__add-button" onClick={props.onAddPlace}><img className="profile__icon-add" src={iconAddPath} title="кнопка добавить" alt="кнопка добавить" />

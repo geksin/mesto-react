@@ -4,7 +4,7 @@ import CloseButtonPopup from './CloseButtonPopup.js';
 function PopupWithForm (props) {
     React.useEffect(() => {
         function handleEscClose(evt) {
-            if (evt.key == "Escape") {
+            if (evt.key === "Escape") {
                 props.isClose()
         }}
         document.addEventListener('keydown',handleEscClose);

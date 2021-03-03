@@ -6,7 +6,7 @@ function ImagePopup(props) {
 
     React.useEffect(() => {
         function handleEscClose(evt) {
-            if (evt.key == "Escape") {
+            if (evt.key === "Escape") {
                 props.onClose()
         }}
         document.addEventListener('keydown',handleEscClose);
